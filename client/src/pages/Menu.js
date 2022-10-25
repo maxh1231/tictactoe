@@ -1,26 +1,29 @@
 import io from 'socket.io-client';
+import { useState, useEffect } from 'react'
+
+const socket = io.connect("http://localhost:3001");
 
 const Menu = () => {
-    var socket = io();
-    var messages = document.getElementById('messages');
-    var form = document.getElementById('form');
-    var input = document.getElementById('input');
+    const [message, setMessage] = useState('');
+    const [messageReceived, setMessageReceived] = useState('');
 
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        if (input.value) {
-            socket.emit('chat message', input.value);
-            input.value = '';
-        }
-    });
+    const sendMessage = () => {
+        socket.emit('send_message', { message });
+    }
+
+    useEffect(() => {
+        socket.on("recieve_message", (data) => {
+            setMessageReceived(data.message);
+        });
+    }, [socket]);
 
     return (
         <section>
-            <h1>hello!!!!!!!!!!</h1>
-            <ul id="messages"></ul>
-            <form id="form" action="">
-                <input id="input" autocomplete="off" /><button>Send</button>
-            </form>
+            <div>
+                <input onChange={(event) => setMessage(event.target.value)}></input>
+                <button onClick={sendMessage}>Send Message</button>
+                <h1>{messageReceived}</h1>
+            </div>
 
 
         </section>

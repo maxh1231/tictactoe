@@ -1,8 +1,10 @@
+import GameCard from "../Components/GameCard/";
+
 const Game = () => {
     return (
-        <section>
-            <h1>test</h1>
-        </section>
+
+        <GameCard />
+
     )
 }
 

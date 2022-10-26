@@ -20,8 +20,8 @@ const Menu = () => {
     }, [socket]);
 
     return (
-        <section>
-            <div>
+        <section className='flex justify-center items-center h-screen'>
+            {/* <div>
                 <input
                     onChange={(event) => {
                         setMessage(event.target.value);
@@ -29,7 +29,7 @@ const Menu = () => {
                 />
                 <button onClick={sendMessage}>Send Message</button>
                 <h1>{messageReceived}</h1>
-            </div>
+            </div> */}
 
 
             <MenuCard />

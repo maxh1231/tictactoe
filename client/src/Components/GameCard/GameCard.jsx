@@ -6,8 +6,18 @@ import logo from '../../assets/logo.svg'
 
 const GameCard = () => {
     return (
-        <div>
-            <div></div>
+        <div className='flex flex-col'>
+            <div className='flex justify-between'>
+                <div>
+                    <img src={logo}></img>
+                </div>
+                <div>
+                    <button>X TURN</button>
+                </div>
+                <div>
+                    <img src={icon_restart}></img>
+                </div>
+            </div>
 
             <div className="flex my-4">
                 <div className='w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2'></div>

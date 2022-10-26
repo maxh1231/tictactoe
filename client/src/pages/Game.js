@@ -2,8 +2,9 @@ import GameCard from "../Components/GameCard/";
 
 const Game = () => {
     return (
-
-        <GameCard />
+        <section className="flex justify-center items-center h-screen">
+            <GameCard />
+        </section>
 
     )
 }

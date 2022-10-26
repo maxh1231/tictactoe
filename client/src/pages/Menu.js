@@ -1,6 +1,8 @@
 import io from 'socket.io-client';
 import { useState, useEffect } from 'react'
 
+import MenuCard from '../Components/MenuCard/';
+
 const socket = io.connect("http://localhost:3001");
 
 const Menu = () => {
@@ -20,12 +22,17 @@ const Menu = () => {
     return (
         <section>
             <div>
-                <input onChange={(event) => setMessage(event.target.value)}></input>
+                <input
+                    onChange={(event) => {
+                        setMessage(event.target.value);
+                    }}
+                />
                 <button onClick={sendMessage}>Send Message</button>
                 <h1>{messageReceived}</h1>
             </div>
 
 
+            <MenuCard />
         </section>
     )
 }

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const MenuCard = () => {
     return (
         <div>
@@ -13,7 +15,7 @@ const MenuCard = () => {
             </div>
 
             <div>
-                <button>NEW GAME (VS CPU)</button>
+                <Link to="/game">NEW GAME (VS CPU)</Link>
                 <button>NEW GAME (VS PLAYER)</button>
             </div>
         </div>

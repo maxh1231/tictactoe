@@ -5,11 +5,13 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 
 // Pages
 import Menu from './pages/Menu';
+import Game from './pages/Game';
 
 function App() {
   return (
@@ -33,8 +35,14 @@ function App() {
         </div> */}
 
       <Switch>
-        <Route path="/">
+        {/* <Route path="/">
+          <Redirect to="/home" />
+        </Route> */}
+        <Route exact path="/">
           <Menu />
+        </Route>
+        <Route exact path="/game">
+          <Game />
         </Route>
       </Switch>
 

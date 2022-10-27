@@ -11,10 +11,10 @@ const MenuCard = () => {
     const [mark, setMark] = useState('X')
 
     const markHandler = (event) => {
-        if (event.target.id === 'mark-x' || event.target.id === 'parent-mark-x' || event.target.id === 'path-mark-x') {
+        if (event.target.id.slice(-1) === 'x') {
             setMark('X')
         }
-        if (event.target.id === 'mark-o' || event.target.id === 'parent-mark-o' || event.target.id === 'path-mark-o') {
+        if (event.target.id.slice(-1) === 'o') {
             setMark('O')
         }
     }

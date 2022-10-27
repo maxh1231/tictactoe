@@ -11,9 +11,9 @@ const MenuCard = () => {
             <div>
                 <img src={logo}></img>
             </div>
-            <div className='flex flex-col justify-evenly bg-[#1F3641] rounded-xl h-[200px] px-6 mt-6'>
+            <div className='flex flex-col justify-evenly bg-[#1F3641] rounded-xl h-[180px] px-6 mt-6'>
                 <div>
-                    <h2>PICK PLAYER 1'S MARK</h2>
+                    <h2 className='text-sm text-[#A8BFC9]'>PICK PLAYER 1'S MARK</h2>
                 </div>
                 <div className='flex justify-around bg-[#1A2A33] rounded-lg w-[350px]'>
                     <div className=''>
@@ -24,15 +24,15 @@ const MenuCard = () => {
                     </div>
                 </div>
                 <div>
-                    <span>REMEMBER : X GOES FIRST</span>
+                    <span className='text-sm text-[#A8BFC9]'>REMEMBER : X GOES FIRST</span>
                 </div>
             </div>
 
             <div className='flex flex-col mt-8 w-full'>
 
-                <Link className='bg-[#F2B137] py-2 w-full rounded-lg' to="/game">NEW GAME (VS CPU)</Link>
+                <Link className='text-sm bg-[#F2B137] py-3 w-full rounded-lg' to="/game">NEW GAME (VS CPU)</Link>
 
-                <button className='bg-[#65E9E4] py-2 mt-2 rounded-lg'>NEW GAME (VS PLAYER)</button>
+                <button className='text-sm bg-[#65E9E4] py-3 mt-4 rounded-lg'>NEW GAME (VS PLAYER)</button>
             </div>
         </div>
     )

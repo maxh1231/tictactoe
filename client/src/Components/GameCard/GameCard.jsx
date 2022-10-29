@@ -35,25 +35,37 @@ const GameCard = () => {
             </div>
 
             <div className="flex my-4">
-                <div className='w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2' onClick={makeMove}>
+                <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
                     <img src=''></img>
                 </div>
-                <div className='w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2'>
+                <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
                     <img src=''></img>
                 </div>
-                <div className='w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2'>
+                <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
                     <img src=''></img>
                 </div>
             </div>
             <div className="flex my-4">
-                <div className='w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2'></div>
-                <div className='w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2'></div>
-                <div className='w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2'></div>
+                <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
+                    <img src=''></img>
+                </div>
+                <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
+                    <img src=''></img>
+                </div>
+                <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
+                    <img src=''></img>
+                </div>
             </div>
             <div className="flex my-4">
-                <div className='w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2'></div>
-                <div className='w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2'></div>
-                <div className='w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2'></div>
+                <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
+                    <img src=''></img>
+                </div>
+                <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
+                    <img src=''></img>
+                </div>
+                <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
+                    <img src=''></img>
+                </div>
             </div>
 
             <div>

@@ -44,7 +44,10 @@ const MenuCard = () => {
 
             <div className='flex flex-col mt-8 w-full'>
 
-                <Link className='text-sm bg-[#F2B137] py-3 w-full rounded-lg' to="/game">NEW GAME (VS CPU)</Link>
+                <Link to={{
+                    pathname: '/game',
+                    state: { mark: mark }
+                }} className='text-sm bg-[#F2B137] py-3 w-full rounded-lg'>NEW GAME (VS CPU)</Link>
 
                 <button className='text-sm bg-[#65E9E4] py-3 mt-4 rounded-lg'>NEW GAME (VS PLAYER)</button>
             </div>

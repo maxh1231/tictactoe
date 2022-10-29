@@ -3,8 +3,11 @@ import icon_o from '../../assets/icon-o.svg'
 import icon_x from '../../assets/icon-x.svg'
 import icon_restart from '../../assets/icon-restart.svg'
 import logo from '../../assets/logo.svg'
+import { useLocation } from 'react-router'
 
 const GameCard = () => {
+    const location = useLocation();
+    console.log(location.state)
     return (
         <div className='flex flex-col'>
             <div className='flex justify-between'>

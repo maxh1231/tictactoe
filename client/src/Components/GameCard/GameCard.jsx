@@ -23,14 +23,19 @@ const GameCard = () => {
         }
         if (location.state.mark === 'O') {
             event.target.children[0].setAttribute('src', icon_o);
+            makeAIMove()
         }
     }
 
     const makeAIMove = () => {
-
         let randomInt = Math.floor(Math.random() * (10 - 1) + 1)
-        blocks.current[randomInt].src = icon_o
+        if (location.state.mark === 'X') {
+            blocks.current[randomInt].src = icon_o
+        }
 
+        if (location.state.mark === 'O') {
+            blocks.current[randomInt].src = icon_x
+        }
     }
 
     return (

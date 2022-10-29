@@ -19,11 +19,11 @@ const GameCard = () => {
     const makeMove = (event) => {
         if (location.state.mark === 'X') {
             event.target.children[0].setAttribute('src', icon_x)
-            makeAIMove()
+            setTimeout(makeAIMove, 1000)
         }
         if (location.state.mark === 'O') {
             event.target.children[0].setAttribute('src', icon_o);
-            makeAIMove()
+            setTimeout(makeAIMove, 1000)
         }
     }
 

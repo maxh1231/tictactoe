@@ -4,7 +4,7 @@ import icon_x from '../../assets/icon-x.svg'
 import icon_restart from '../../assets/icon-restart.svg'
 import logo from '../../assets/logo.svg'
 import { useLocation } from 'react-router'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 
 
@@ -14,31 +14,46 @@ const GameCard = () => {
     console.log(location.state)
     console.log(blocks)
 
+    // useEffect(() => {
+    //     if (location.state.mark === 'O') {
+
+    //     }
+    // })
 
 
     const makeMove = (event) => {
         if (location.state.mark === 'X') {
             event.target.children[0].src = icon_x
-            setTimeout(makeAIMove, 1000)
         }
         if (location.state.mark === 'O') {
             event.target.children[0].src = icon_o;
-            setTimeout(makeAIMove, 1000)
         }
+        setTimeout(makeAIMove, 1000)
     }
 
 
     let endGameArr = [];
     const makeAIMove = () => {
-        let randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
-        while (blocks.current[randomInt].getAttribute('src').includes('.svg') && endGameArr.length < 4) {
-            randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
-            console.log(randomInt)
+        if (location.state.mark === 'X' && endGameArr.length < 4) {
+            let randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
+            while (blocks.current[randomInt].getAttribute('src').includes('.svg') && endGameArr.length < 4) {
+                randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
+                console.log(randomInt)
 
+            }
+            blocks.current[randomInt].src = icon_o;
+            endGameArr.push(randomInt);
+            console.log(endGameArr)
         }
 
-        if (location.state.mark === 'X') {
-            blocks.current[randomInt].src = icon_o;
+        if (location.state.mark === 'O') {
+            let randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
+            while (blocks.current[randomInt].getAttribute('src').includes('.svg') && endGameArr.length < 5) {
+                randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
+                console.log(randomInt)
+
+            }
+            blocks.current[randomInt].src = icon_x;
             endGameArr.push(randomInt);
             console.log(endGameArr)
         }

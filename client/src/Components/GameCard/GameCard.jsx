@@ -27,15 +27,20 @@ const GameCard = () => {
         }
     }
 
+
+    let endGameArr = [];
     const makeAIMove = () => {
         let randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
-        while (blocks.current[randomInt].getAttribute('src').includes('.svg')) {
+        while (blocks.current[randomInt].getAttribute('src').includes('.svg') && endGameArr.length < 4) {
             randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
             console.log(randomInt)
+
         }
 
         if (location.state.mark === 'X') {
             blocks.current[randomInt].src = icon_o;
+            endGameArr.push(randomInt);
+            console.log(endGameArr)
         }
     }
 

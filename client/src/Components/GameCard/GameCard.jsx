@@ -40,7 +40,7 @@ const GameCard = () => {
     const makeAIMove = () => {
         if (location.state.mark === 'X' && endGameArr.length < 4) {
             let randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
-            while (blocks.current[randomInt].getAttribute('src').includes('.svg') && endGameArr.length < 4) {
+            while (blocks.current[randomInt].getAttribute('src').includes('.svg')) {
                 randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
                 console.log(randomInt)
 
@@ -53,7 +53,7 @@ const GameCard = () => {
 
         if (location.state.mark === 'O' && endGameArr.length < 5) {
             let randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
-            while (blocks.current[randomInt].getAttribute('src').includes('.svg') && endGameArr.length < 5) {
+            while (blocks.current[randomInt].getAttribute('src').includes('.svg')) {
                 randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
                 console.log(randomInt)
 

@@ -11,6 +11,7 @@ import { useState, useRef, useEffect } from 'react'
 const GameCard = () => {
     const blocks = useRef([])
     const location = useLocation();
+    const [marksTurn, setMarksTurn] = useState(location.state.mark)
     console.log(location.state)
     console.log(blocks)
 
@@ -25,9 +26,11 @@ const GameCard = () => {
     const makeMove = (event) => {
         if (location.state.mark === 'X') {
             event.target.children[0].src = icon_x
+            setMarksTurn('O')
         }
         if (location.state.mark === 'O') {
             event.target.children[0].src = icon_o;
+            setMarksTurn('X')
         }
         setTimeout(makeAIMove, 1000)
     }
@@ -45,9 +48,10 @@ const GameCard = () => {
             blocks.current[randomInt].src = icon_o;
             endGameArr.push(randomInt);
             console.log(endGameArr)
+            setMarksTurn('X')
         }
 
-        if (location.state.mark === 'O') {
+        if (location.state.mark === 'O' && endGameArr.length < 5) {
             let randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
             while (blocks.current[randomInt].getAttribute('src').includes('.svg') && endGameArr.length < 5) {
                 randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
@@ -57,6 +61,7 @@ const GameCard = () => {
             blocks.current[randomInt].src = icon_x;
             endGameArr.push(randomInt);
             console.log(endGameArr)
+            setMarksTurn('O')
         }
     }
 
@@ -67,7 +72,7 @@ const GameCard = () => {
                     <img src={logo}></img>
                 </div>
                 <div>
-                    <button>{location.state.mark} TURN</button>
+                    <button>{marksTurn} TURN</button>
                 </div>
                 <div>
                     <img src={icon_restart}></img>

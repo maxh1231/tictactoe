@@ -14,11 +14,12 @@ const GameCard = () => {
     console.log(location.state)
     console.log(blocks)
 
-    // useEffect(() => {
-    //     if (location.state.mark === 'O') {
-
-    //     }
-    // })
+    useEffect(() => {
+        console.log('hit')
+        if (location.state.mark === 'O') {
+            makeAIMove();
+        }
+    }, [])
 
 
     const makeMove = (event) => {

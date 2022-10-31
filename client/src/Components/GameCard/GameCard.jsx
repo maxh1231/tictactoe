@@ -18,23 +18,24 @@ const GameCard = () => {
 
     const makeMove = (event) => {
         if (location.state.mark === 'X') {
-            event.target.children[0].setAttribute('src', icon_x)
+            event.target.children[0].src = icon_x
             setTimeout(makeAIMove, 1000)
         }
         if (location.state.mark === 'O') {
-            event.target.children[0].setAttribute('src', icon_o);
+            event.target.children[0].src = icon_o;
             setTimeout(makeAIMove, 1000)
         }
     }
 
     const makeAIMove = () => {
-        let randomInt = Math.floor(Math.random() * (10 - 1) + 1)
-        if (location.state.mark === 'X') {
-            blocks.current[randomInt].src = icon_o
+        let randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
+        while (blocks.current[randomInt].getAttribute('src').includes('.svg')) {
+            randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
+            console.log(randomInt)
         }
 
-        if (location.state.mark === 'O') {
-            blocks.current[randomInt].src = icon_x
+        if (location.state.mark === 'X') {
+            blocks.current[randomInt].src = icon_o;
         }
     }
 
@@ -54,35 +55,35 @@ const GameCard = () => {
 
             <div className="flex my-4">
                 <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
-                    <img ref={(element) => blocks.current.push(element)} src=''></img>
+                    <img id='1' ref={(element) => blocks.current.push(element)} src=""></img>
                 </div>
                 <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
-                    <img ref={(element) => blocks.current.push(element)} src=''></img>
+                    <img id='2' ref={(element) => blocks.current.push(element)} src=""></img>
                 </div>
                 <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
-                    <img ref={(element) => blocks.current.push(element)} src=''></img>
-                </div>
-            </div>
-            <div className="flex my-4">
-                <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
-                    <img ref={(element) => blocks.current.push(element)} src=''></img>
-                </div>
-                <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
-                    <img ref={(element) => blocks.current.push(element)} src=''></img>
-                </div>
-                <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
-                    <img ref={(element) => blocks.current.push(element)} src=''></img>
+                    <img id='3' ref={(element) => blocks.current.push(element)} src=""></img>
                 </div>
             </div>
             <div className="flex my-4">
                 <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
-                    <img ref={(element) => blocks.current.push(element)} src=''></img>
+                    <img id='4' ref={(element) => blocks.current.push(element)} src=""></img>
                 </div>
                 <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
-                    <img ref={(element) => blocks.current.push(element)} src=''></img>
+                    <img id='5' ref={(element) => blocks.current.push(element)} src=""></img>
                 </div>
                 <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
-                    <img ref={(element) => blocks.current.push(element)} src=''></img>
+                    <img id='6' ref={(element) => blocks.current.push(element)} src=""></img>
+                </div>
+            </div>
+            <div className="flex my-4">
+                <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
+                    <img id='7' ref={(element) => blocks.current.push(element)} src=""></img>
+                </div>
+                <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
+                    <img id='8' ref={(element) => blocks.current.push(element)} src=""></img>
+                </div>
+                <div className='flex justify-center items-center w-[140px] h-[140px] bg-[#1F3641] rounded-xl mx-2 hover:cursor-pointer' onClick={makeMove}>
+                    <img id='9' ref={(element) => blocks.current.push(element)} src=""></img>
                 </div>
             </div>
 

@@ -11,32 +11,27 @@ import { useState, useRef, useEffect } from 'react'
 const GameCard = () => {
     const blocks = useRef([])
     const location = useLocation();
-    const [marksTurn, setMarksTurn] = useState(location.state.mark)
-    console.log(location.state)
-    console.log(blocks)
+    const [activeMark, setActiveMark] = useState(null);
+    const [endGameArr, setEndGameArr] = useState([]);
 
     useEffect(() => {
-        console.log('hit')
         if (location.state.mark === 'O') {
             makeAIMove();
         }
     }, [])
 
-
     const makeMove = (event) => {
         if (location.state.mark === 'X') {
             event.target.children[0].src = icon_x
-            setMarksTurn('O')
+            setActiveMark('O')
         }
         if (location.state.mark === 'O') {
             event.target.children[0].src = icon_o;
-            setMarksTurn('X')
+            setActiveMark('X')
         }
         setTimeout(makeAIMove, 1000)
     }
 
-
-    let endGameArr = [];
     const makeAIMove = () => {
         if (location.state.mark === 'X' && endGameArr.length < 4) {
             let randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
@@ -46,9 +41,9 @@ const GameCard = () => {
 
             }
             blocks.current[randomInt].src = icon_o;
-            endGameArr.push(randomInt);
+            setEndGameArr(current => [...current, randomInt])
             console.log(endGameArr)
-            setMarksTurn('X')
+            setActiveMark('X')
         }
 
         if (location.state.mark === 'O' && endGameArr.length < 5) {
@@ -59,9 +54,9 @@ const GameCard = () => {
 
             }
             blocks.current[randomInt].src = icon_x;
-            endGameArr.push(randomInt);
+            setEndGameArr(current => [...current, randomInt])
             console.log(endGameArr)
-            setMarksTurn('O')
+            setActiveMark('O')
         }
     }
 
@@ -72,7 +67,7 @@ const GameCard = () => {
                     <img src={logo}></img>
                 </div>
                 <div>
-                    <button>{marksTurn} TURN</button>
+                    {activeMark === 'X' ? <span>X TURN</span> : <span>O TURN</span>}
                 </div>
                 <div>
                     <img src={icon_restart}></img>

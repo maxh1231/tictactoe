@@ -5,6 +5,7 @@ import icon_restart from '../../assets/icon-restart.svg'
 import logo from '../../assets/logo.svg'
 import { useLocation } from 'react-router'
 import { useState, useRef, useEffect } from 'react'
+import { gameCheckX } from '../../utils/gameCheck'
 
 
 
@@ -15,16 +16,6 @@ const GameCard = () => {
     const [endGameArr, setEndGameArr] = useState([]);
     const [isOver, setIsOver] = useState(false);
 
-    // const checkGame = [
-    //     [0, 1, 2],
-    //     [3, 4, 5],
-    //     [6, 7, 8],
-    //     [0, 3, 6],
-    //     [1, 4, 7],
-    //     [2, 5, 8],
-    //     [0, 5, 8],
-    //     [2, 4, 6]
-    // ]
     useEffect(() => {
         if (location.state.mark === 'O') {
             makeAIMove();
@@ -32,37 +23,8 @@ const GameCard = () => {
     }, [])
 
     useEffect(() => {
-        if (blocks.current[0].getAttribute('src').includes('icon-x') && blocks.current[1].getAttribute('src').includes('icon-x') && blocks.current[2].getAttribute('src').includes('icon-x')) {
+        if (gameCheckX(blocks) === true) {
             setIsOver(true);
-            console.log(true);
-        }
-        if (blocks.current[3].getAttribute('src').includes('icon-x') && blocks.current[4].getAttribute('src').includes('icon-x') && blocks.current[5].getAttribute('src').includes('icon-x')) {
-            setIsOver(true);
-            console.log(true);
-        }
-        if (blocks.current[6].getAttribute('src').includes('icon-x') && blocks.current[7].getAttribute('src').includes('icon-x') && blocks.current[8].getAttribute('src').includes('icon-x')) {
-            setIsOver(true);
-            console.log(true);
-        }
-        if (blocks.current[0].getAttribute('src').includes('icon-x') && blocks.current[3].getAttribute('src').includes('icon-x') && blocks.current[6].getAttribute('src').includes('icon-x')) {
-            setIsOver(true);
-            console.log(true);
-        }
-        if (blocks.current[1].getAttribute('src').includes('icon-x') && blocks.current[4].getAttribute('src').includes('icon-x') && blocks.current[7].getAttribute('src').includes('icon-x')) {
-            setIsOver(true);
-            console.log(true);
-        }
-        if (blocks.current[2].getAttribute('src').includes('icon-x') && blocks.current[5].getAttribute('src').includes('icon-x') && blocks.current[8].getAttribute('src').includes('icon-x')) {
-            setIsOver(true);
-            console.log(true);
-        }
-        if (blocks.current[0].getAttribute('src').includes('icon-x') && blocks.current[4].getAttribute('src').includes('icon-x') && blocks.current[8].getAttribute('src').includes('icon-x')) {
-            setIsOver(true);
-            console.log(true);
-        }
-        if (blocks.current[2].getAttribute('src').includes('icon-x') && blocks.current[4].getAttribute('src').includes('icon-x') && blocks.current[6].getAttribute('src').includes('icon-x')) {
-            setIsOver(true);
-            console.log(true);
         }
     }, [activeMark])
 

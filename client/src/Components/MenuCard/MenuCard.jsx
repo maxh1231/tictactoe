@@ -3,7 +3,6 @@ import icon_x from '../../assets/icon-x.svg'
 import icon_restart from '../../assets/icon-restart.svg'
 import logo from '../../assets/logo.svg'
 import { useState } from 'react'
-
 import { Link } from "react-router-dom";
 
 

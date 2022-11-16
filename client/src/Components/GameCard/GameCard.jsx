@@ -13,12 +13,59 @@ const GameCard = () => {
     const location = useLocation();
     const [activeMark, setActiveMark] = useState(location.state.mark);
     const [endGameArr, setEndGameArr] = useState([]);
+    const [isOver, setIsOver] = useState(false);
 
+    // const checkGame = [
+    //     [0, 1, 2],
+    //     [3, 4, 5],
+    //     [6, 7, 8],
+    //     [0, 3, 6],
+    //     [1, 4, 7],
+    //     [2, 5, 8],
+    //     [0, 5, 8],
+    //     [2, 4, 6]
+    // ]
     useEffect(() => {
         if (location.state.mark === 'O') {
             makeAIMove();
         }
     }, [])
+
+    useEffect(() => {
+        if (blocks.current[0].getAttribute('src').includes('icon-x') && blocks.current[1].getAttribute('src').includes('icon-x') && blocks.current[2].getAttribute('src').includes('icon-x')) {
+            setIsOver(true);
+            console.log(true);
+        }
+        if (blocks.current[3].getAttribute('src').includes('icon-x') && blocks.current[4].getAttribute('src').includes('icon-x') && blocks.current[5].getAttribute('src').includes('icon-x')) {
+            setIsOver(true);
+            console.log(true);
+        }
+        if (blocks.current[6].getAttribute('src').includes('icon-x') && blocks.current[7].getAttribute('src').includes('icon-x') && blocks.current[8].getAttribute('src').includes('icon-x')) {
+            setIsOver(true);
+            console.log(true);
+        }
+        if (blocks.current[0].getAttribute('src').includes('icon-x') && blocks.current[3].getAttribute('src').includes('icon-x') && blocks.current[6].getAttribute('src').includes('icon-x')) {
+            setIsOver(true);
+            console.log(true);
+        }
+        if (blocks.current[1].getAttribute('src').includes('icon-x') && blocks.current[4].getAttribute('src').includes('icon-x') && blocks.current[7].getAttribute('src').includes('icon-x')) {
+            setIsOver(true);
+            console.log(true);
+        }
+        if (blocks.current[2].getAttribute('src').includes('icon-x') && blocks.current[5].getAttribute('src').includes('icon-x') && blocks.current[8].getAttribute('src').includes('icon-x')) {
+            setIsOver(true);
+            console.log(true);
+        }
+        if (blocks.current[0].getAttribute('src').includes('icon-x') && blocks.current[4].getAttribute('src').includes('icon-x') && blocks.current[8].getAttribute('src').includes('icon-x')) {
+            setIsOver(true);
+            console.log(true);
+        }
+        if (blocks.current[2].getAttribute('src').includes('icon-x') && blocks.current[4].getAttribute('src').includes('icon-x') && blocks.current[6].getAttribute('src').includes('icon-x')) {
+            setIsOver(true);
+            console.log(true);
+        }
+    }, [activeMark])
+
 
     const makeMove = (event) => {
         if (location.state.mark === 'X') {
@@ -29,14 +76,14 @@ const GameCard = () => {
             event.target.children[0].src = icon_o;
             setActiveMark('X')
         }
-        setTimeout(makeAIMove, 1000)
+        setTimeout(makeAIMove, 500)
     }
 
     const makeAIMove = () => {
-        if (location.state.mark === 'X' && endGameArr.length < 4) {
-            let randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
+        if (location.state.mark === 'X' && endGameArr.length < 4 && isOver === false) {
+            let randomInt = Math.floor(Math.random() * 9)
             while (blocks.current[randomInt].getAttribute('src').includes('.svg')) {
-                randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
+                randomInt = Math.floor(Math.random() * 9)
                 console.log(randomInt)
 
             }
@@ -44,12 +91,13 @@ const GameCard = () => {
             setEndGameArr(current => [...current, randomInt])
             console.log(endGameArr)
             setActiveMark('X')
+            console.log(randomInt)
         }
 
-        if (location.state.mark === 'O' && endGameArr.length < 5) {
-            let randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
+        if (location.state.mark === 'O' && endGameArr.length < 5 && isOver === false) {
+            let randomInt = Math.floor(Math.random() * 9)
             while (blocks.current[randomInt].getAttribute('src').includes('.svg')) {
-                randomInt = Math.floor(Math.random() * (9 - 1 + 1) + 0)
+                randomInt = Math.floor(Math.random() * 9)
                 console.log(randomInt)
 
             }
